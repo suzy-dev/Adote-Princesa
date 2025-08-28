@@ -17,7 +17,6 @@ h1, h2, h3 {
     font-family: 'Lora', serif;
 }
 .hero-bg {
-    background-image: url('https://i.imgur.com/gM5z3bB.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -37,7 +36,7 @@ h1, h2, h3 {
     background-size: 200% 200%;
     animation: gradientShift 15s ease infinite;
 }
-/* Estilo para o carrossel com slide */
+/* Carrossel */
 #gallery {
     overflow: hidden;
     position: relative;
@@ -169,7 +168,8 @@ h1, h2, h3 {
         <h2 class="text-3xl md:text-4xl font-bold text-[#E0529A]">Que tal levar a Princesa para casa? 🐾</h2>
 <p class="mt-4 mb-8 text-lg text-gray-600">
   A <strong>Princesa</strong> está pronta para um <strong>lar definitivo</strong>, onde possa <strong>receber e dar muito amor</strong>. Ela já <strong>sofreu muito</strong> e tudo o que precisa agora é de uma <strong>família que a ame e a proteja</strong>. Se você <strong>sentiu uma conexão com a história dela</strong> e tem um <strong>espaço no seu coração e na sua casa</strong>, entre em contato.
-</p>        <div class="bg-white border-2 border-[#FF69B4] rounded-lg p-8 inline-block">
+</p>
+        <div class="bg-white border-2 border-[#FF69B4] rounded-lg p-8 inline-block">
             <h3 class="text-2xl font-bold text-[#FF69B4]">Informações, dúvidas, entre em contato:</h3>
             <p class="text-xl mt-4">Suzana Araujo</p>
             <a href="https://wa.me/+5561996603770?text=Olá!%20Vi%20o%20anúncio%20da%20Princesa%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20adoção." target="_blank" class="text-xl mt-2 block text-[#E0529A] hover:underline">
@@ -203,17 +203,16 @@ const imageSources = [
     "./img/prince2.jpg",
     "./img/princes-principal.jpg"
 ];
-let currentIndex = 2; // Index for princ.jpg
+let currentIndex = 2; 
 let isSliding = false;
 
 function updateGallery(newIndex, direction = 1) {
-    if (isSliding) return; // impede cliques rápidos
+    if (isSliding) return;
     isSliding = true;
 
     const mainImage = document.getElementById('mainImage');
     const thumbnails = document.querySelectorAll('.thumbnail');
 
-    // efeito slide
     mainImage.style.transition = 'none';
     mainImage.style.transform = `translateX(${direction*100}%)`;
     mainImage.style.opacity = '0';
@@ -266,7 +265,6 @@ function closeFullScreenImage() {
     modal.classList.add('hidden', 'opacity-0');
 }
 
-// Inicializa carrossel
 window.onload = function() {
     updateGallery(currentIndex);
     setInterval(() => { navigateGallery(1); }, 5000);
